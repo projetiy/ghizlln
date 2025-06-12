@@ -1,18 +1,9 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'screens/login/login_screen.dart';
+import 'package:get/get.dart'; // <-- ajoute ceci
+import 'package:studium/screens/splash_screen.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp(
-
-    );
-
-
-  runApp( MyApp());
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,14 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return    GetMaterialApp(
-      title: 'Mon App',
+    return GetMaterialApp( // <-- remplace MaterialApp par GetMaterialApp
       debugShowCheckedModeBanner: false,
+      title: 'Studium',
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
+        primarySwatch: Colors.blue,
       ),
-
-      home: const LoginScreen(),
+      home: const SplashScreen(), // <-- tu peux garder ton splash ici
     );
   }
 }
